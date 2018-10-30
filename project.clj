@@ -1,4 +1,4 @@
-(defproject com.cemerick/url "0.1.2-SNAPSHOT"
+(defproject social.forks/cemerick.url "0.1.2-SNAPSHOT"
   :description "Makes working with URLs in Clojure a little more pleasant."
   :url "http://github.com/cemerick/url"
   :license {:name "Eclipse Public License"
@@ -9,8 +9,17 @@
 
   :source-paths ["src" "target/generated-src"]
   :test-paths ["target/generated-test"]
-  :aliases  {"cleantest" ["do" "clean," "cljx" "once," "test,"
-                          "cljsbuild" "once," "cljsbuild" "test"]}
+
+  :auto-clean false
+
+  :aliases {"cleantest" ["do" "clean," "cljx" "once," "test,"
+                         "cljsbuild" "once," "cljsbuild" "test"]
+
+            "we-deploy" ["do"
+                         "clean"
+                         ["cljx" "once"]
+                         ["deploy" "clojars"]]}
+
   :profiles {:dev {:dependencies [[com.cemerick/clojurescript.test "0.0.4"]
                                   [com.keminglabs/cljx "0.3.0"]
                                   [com.cemerick/piggieback "0.0.5"]]
